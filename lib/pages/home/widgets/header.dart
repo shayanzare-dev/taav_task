@@ -7,8 +7,8 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      const SizedBox(
+    return const Stack(children: [
+      SizedBox(
         width: double.infinity,
         height: 120,
         child: ColoredBox(
