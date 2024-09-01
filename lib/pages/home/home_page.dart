@@ -9,9 +9,11 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        body: _body(),
-      );
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _body(),
+    );
+  }
 
   Widget _body() => SingleChildScrollView(
         child: Column(

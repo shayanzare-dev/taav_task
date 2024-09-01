@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UpdateNewVersion extends StatelessWidget {
   const UpdateNewVersion({super.key});
@@ -10,6 +11,7 @@ class UpdateNewVersion extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
             color: Colors.grey, borderRadius: BorderRadius.circular(16)),
-        child: const Text('افزودن ویژگی جدید', textAlign: TextAlign.end),
+        child: Text(AppLocalizations.of(context)!.add_new_feature,
+            ),
       );
 }

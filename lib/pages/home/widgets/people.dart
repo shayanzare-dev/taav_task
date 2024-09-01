@@ -40,7 +40,5 @@ class People extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Column(children: items);
-  }
+  Widget build(BuildContext context) => Column(children: items);
 }

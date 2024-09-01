@@ -7,11 +7,10 @@ class NewProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const Color color = Colors.yellowAccent;
-    final dynamic test = AppLocalizations.of(context) ?? 'error';
-    return Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Text(test),
+        child: Text(AppLocalizations.of(context)!.new_products),
       ),
       const SizedBox(height: 8),
       Expanded(child: _listViewSeparated(color)),
