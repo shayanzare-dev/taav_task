@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/pages/home/widgets/language_change/change_language.dart';
 import 'package:untitled/pages/home/widgets/new_product.dart';
 import 'package:untitled/pages/home/widgets/people.dart';
 
@@ -18,7 +19,12 @@ class HomePage extends StatelessWidget {
   Widget _body() => SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            const Header(),
+             Stack(
+              children: [
+                const Header(),
+                ChangeLanguage(),
+              ],
+            ),
             const SizedBox(height: 15),
             const UpdateNewVersion(),
             const SizedBox(height: 15),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:untitled/pages/data_base/data_base.dart';
+import 'package:untitled/pages/data_base/item.dart';
 
 class NewProduct extends StatelessWidget {
   const NewProduct({super.key});
@@ -13,26 +15,28 @@ class NewProduct extends StatelessWidget {
         child: Text(AppLocalizations.of(context)!.new_products),
       ),
       const SizedBox(height: 8),
-      Expanded(child: _listViewSeparated(color)),
+      Expanded(child: _listViewSeparated(color, context)),
     ]);
   }
 
-  Widget _listViewSeparated(Color primaryColor) {
+  Widget _listViewSeparated(Color primaryColor, BuildContext context) {
     double containerRightMargin = 0;
     double containerLeftMargin = 0;
-
+    final List<Item> items = DataBase.getItems(context);
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
       scrollDirection: Axis.horizontal,
-      itemCount: 20,
+      itemCount: items.length,
       itemBuilder: (context, index) {
         if (index == 0) {
           containerRightMargin = 16;
         }
-        if (index == 19) {
+        if (index == (items.length - 2)) {
           containerLeftMargin = 16;
         }
         return _listViewItem(
+            itemId: items[index].id,
+            itemName: items[index].name,
             containerLeftMargin: containerLeftMargin,
             containerRightMargin: containerRightMargin,
             primaryColor: primaryColor);
@@ -43,11 +47,12 @@ class NewProduct extends StatelessWidget {
     );
   }
 
-  Widget _listViewItem({
-    required double containerRightMargin,
-    required double containerLeftMargin,
-    required Color primaryColor,
-  }) {
+  Widget _listViewItem(
+      {required double containerRightMargin,
+      required double containerLeftMargin,
+      required Color primaryColor,
+      required String itemName,
+      required int itemId}) {
     return Container(
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -55,7 +60,13 @@ class NewProduct extends StatelessWidget {
           right: containerRightMargin, left: containerLeftMargin),
       decoration: BoxDecoration(
           color: primaryColor, borderRadius: BorderRadius.circular(10)),
-      child: const Text('سلامممم'),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(itemName),
+          Text('$itemId'),
+        ],
+      ),
     );
   }
 }

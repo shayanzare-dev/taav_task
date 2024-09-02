@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/pages/home/widgets/language_change/locale_manager.dart';
 
 class ChangeLanguage extends StatefulWidget {
-  const ChangeLanguage({
+ // final void Function({required Locale locale}) changeLocale;
+  final LocaleManager localeManager = LocaleManager();
+
+  ChangeLanguage({
     super.key,
   });
 
@@ -14,6 +18,10 @@ class _ChangeLanguageState extends State<ChangeLanguage> {
   Widget build(BuildContext context) {
     return IconButton(
         onPressed: () {
+          setState(() {
+
+            widget.localeManager.setLocale();
+          });
         },
         icon: const Icon(
           Icons.translate,
