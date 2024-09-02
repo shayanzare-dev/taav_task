@@ -5,22 +5,13 @@ import 'package:untitled/pages/home/widgets/people.dart';
 import 'widgets/header.dart';
 import 'widgets/update_new_version.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   final void Function() changeLocale;
 
   const HomePage({super.key, required this.changeLocale});
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: _body(),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(body: _body());
 
   Widget _body() => SingleChildScrollView(
         child: Column(
@@ -29,11 +20,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const Header(),
                 IconButton(
-                    onPressed: () {
-                      setState(() {
-                        widget.changeLocale();
-                      });
-                    },
+                    onPressed: changeLocale,
                     icon: const Icon(
                       Icons.translate,
                       color: Colors.white,
