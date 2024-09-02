@@ -5,7 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -22,11 +22,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       locale: _localeManager.locale,
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'),
         Locale('fa'),
       ],
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Locale Changer'),
+        title: const Text('Locale Changer'),
       ),
       body: Center(
         child: Column(
@@ -73,9 +73,9 @@ class HomeScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
-                onLocaleChanged(Locale('fa'));
+                onLocaleChanged(const Locale('fa'));
               },
-              child: Text('تغییر به فارسی'),
+              child: const Text('تغییر به فارسی'),
             ),
             ElevatedButton(
               onPressed: () {

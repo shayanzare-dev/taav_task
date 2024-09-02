@@ -1,15 +1,17 @@
 import 'dart:ui';
 
 class LocaleManager {
-  Locale _locale = const Locale('en');
+  static Locale _locale = const Locale('en');
 
   Locale get locale => _locale;
 
-  void setLocale() {
-    if (locale == const Locale('en')) {
+  void changeLocale() {
+    if (_locale == const Locale('en')) {
       _locale = const Locale('fa');
-    } else {
+      print('run fa');
+    } else if (_locale == const Locale('fa')) {
       _locale = const Locale('en');
+      print('run en');
     }
   }
 }

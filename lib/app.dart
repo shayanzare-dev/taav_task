@@ -3,23 +3,31 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:untitled/pages/home/home_page.dart';
 import 'package:untitled/pages/home/widgets/language_change/locale_manager.dart';
 
-class App extends StatelessWidget {
-  App({super.key});
+class App extends StatefulWidget {
+  const App({super.key});
 
-  final LocaleManager locale = LocaleManager();
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  final LocaleManager localeManager = LocaleManager();
 
   @override
   Widget build(BuildContext context) {
-   // Locale locale = const Locale('fa');
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: locale.locale,
+      locale: localeManager.locale,
       title: 'review on localization',
       theme: ThemeData(
         primaryColor: Colors.grey.shade600,
       ),
-      home: const HomePage(),
+      home: HomePage(
+        changeLocale: () => setState(() {
+          localeManager.changeLocale();
+        }),
+      ),
     );
   }
 }

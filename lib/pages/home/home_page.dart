@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/pages/home/widgets/language_change/change_language.dart';
 import 'package:untitled/pages/home/widgets/new_product.dart';
 import 'package:untitled/pages/home/widgets/people.dart';
 
 import 'widgets/header.dart';
 import 'widgets/update_new_version.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  final void Function() changeLocale;
 
+  const HomePage({super.key, required this.changeLocale});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,10 +25,19 @@ class HomePage extends StatelessWidget {
   Widget _body() => SingleChildScrollView(
         child: Column(
           children: <Widget>[
-             Stack(
+            Stack(
               children: [
                 const Header(),
-                ChangeLanguage(),
+                IconButton(
+                    onPressed: () {
+                      setState(() {
+                        widget.changeLocale();
+                      });
+                    },
+                    icon: const Icon(
+                      Icons.translate,
+                      color: Colors.white,
+                    )),
               ],
             ),
             const SizedBox(height: 15),
@@ -30,7 +45,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 15),
             const SizedBox(height: 100, child: NewProduct()),
             const SizedBox(height: 15),
-            People(),
+            const People(),
           ],
         ),
       );

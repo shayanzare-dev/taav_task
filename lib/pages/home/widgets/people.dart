@@ -4,7 +4,7 @@ import '../../data_base/data_base.dart';
 import '../../data_base/person.dart';
 
 class People extends StatelessWidget {
-  People({super.key});
+  const People({super.key});
 
   List<Widget> generateItems(BuildContext context) {
     final List<Person> people = DataBase.getPeopleInformation(context);
