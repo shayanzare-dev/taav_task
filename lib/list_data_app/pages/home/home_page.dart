@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/pages/home/widgets/new_product.dart';
-import 'package:untitled/pages/home/widgets/people.dart';
 
 import 'widgets/header.dart';
+import 'widgets/new_product.dart';
+import 'widgets/people.dart';
 import 'widgets/update_new_version.dart';
 
 class HomePage extends StatelessWidget {

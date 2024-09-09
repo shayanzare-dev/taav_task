@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:untitled/pages/home/home_page.dart';
-import 'package:untitled/pages/home/widgets/language_change/locale_manager.dart';
+import 'package:untitled/todo/todo_page.dart';
+
+import 'list_data_app/pages/home/widgets/language_change/locale_manager.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -16,18 +17,13 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: localeManager.locale,
-      title: 'review on localization',
-      theme: ThemeData(
-        primaryColor: Colors.grey.shade600,
-      ),
-      home: HomePage(
-        changeLocale: () => setState(() {
-          localeManager.changeLocale();
-        }),
-      ),
-    );
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        locale: localeManager.locale,
+        title: 'text form field',
+        theme: ThemeData(
+          primaryColor: Colors.grey.shade600,
+        ),
+        home: const TodoPage());
   }
 }
