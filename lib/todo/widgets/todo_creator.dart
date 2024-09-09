@@ -4,10 +4,13 @@ class TodoCreator extends StatelessWidget {
   TodoCreator({super.key, required this.onSubmit});
 
   final void Function(String, String) onSubmit;
+
   final TextEditingController _nameTextEditingController =
       TextEditingController();
+
   final TextEditingController _lastNameTextEditingController =
       TextEditingController();
+
   final _keyForm = GlobalKey<FormState>();
 
   @override
@@ -27,6 +30,8 @@ class TodoCreator extends StatelessWidget {
     if (_keyForm.currentState?.validate() ?? false) {
       onSubmit(
           _nameTextEditingController.text, _lastNameTextEditingController.text);
+    _nameTextEditingController.clear();
+    _lastNameTextEditingController.clear();
     }
   }
 

@@ -12,11 +12,6 @@ class TodoPage extends StatefulWidget {
 }
 
 class _TodoPageState extends State<TodoPage> {
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   //  String showStatusText() => isEnable ? 'UnEnable' : 'enable';
   final List<MyPerson> todoList = [];
 
