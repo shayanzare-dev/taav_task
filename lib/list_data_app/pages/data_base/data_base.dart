@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/pages/data_base/item.dart';
 
+import 'item.dart';
 import 'person.dart';
 
 class DataBase {

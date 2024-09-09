@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:untitled/pages/data_base/data_base.dart';
-import 'package:untitled/pages/data_base/item.dart';
+import 'package:untitled/list_data_app/pages/home/widgets/list_view_page.dart';
+
+import '../../data_base/data_base.dart';
+import '../../data_base/item.dart';
 
 class NewProduct extends StatelessWidget {
   const NewProduct({super.key});
@@ -15,7 +17,10 @@ class NewProduct extends StatelessWidget {
         child: Text(AppLocalizations.of(context)!.new_products),
       ),
       const SizedBox(height: 8),
-      Expanded(child: _listViewSeparated(color, context)),
+      const Expanded(
+          child: ListViewPage(
+        primaryColor: Colors.red,
+      )),
     ]);
   }
 
