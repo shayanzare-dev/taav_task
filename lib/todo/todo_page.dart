@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/todo/my_person.dart';
 import 'package:untitled/todo/widgets/todo_creator.dart';
 
 import 'widgets/item_list.dart';
@@ -17,7 +18,7 @@ class _TodoPageState extends State<TodoPage> {
   }
 
   //  String showStatusText() => isEnable ? 'UnEnable' : 'enable';
-  Map<String, List<String>> todoList = {'name': [], 'lastName': []};
+  final List<MyPerson> todoList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -42,17 +43,14 @@ class _TodoPageState extends State<TodoPage> {
         ],
       );
 
-  void _onDelete(int index) => setState(() {
-        todoList['name']!.removeAt(index);
-        todoList['lastName']!.removeAt(index);
-      });
+  void _onDelete(int index) => setState(() => todoList.removeAt(index));
 
   void _onSubmit(
     String name,
     String lastName,
   ) =>
-      setState(() {
-        todoList['name']!.add(name.trim());
-        todoList['lastName']!.add(lastName.trim());
-      });
+      setState(
+        () => todoList
+            .add(MyPerson(name: name.trim(), lastName: lastName.trim())),
+      );
 }
