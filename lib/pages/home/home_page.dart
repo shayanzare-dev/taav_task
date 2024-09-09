@@ -11,7 +11,12 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key, required this.changeLocale});
 
   @override
-  Widget build(BuildContext context) => Scaffold(body: _body());
+  Widget build(BuildContext context) => Scaffold(
+      drawer: const Drawer(
+        width: 50,
+        elevation: 3,
+      ),
+      body: _body());
 
   Widget _body() => SingleChildScrollView(
         child: Column(
