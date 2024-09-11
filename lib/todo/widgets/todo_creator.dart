@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/shared/text_field_type.dart';
 
 class TodoCreator extends StatelessWidget {
   TodoCreator({super.key, required this.onSubmit});
@@ -12,6 +13,7 @@ class TodoCreator extends StatelessWidget {
       TextEditingController();
 
   final _keyForm = GlobalKey<FormState>();
+  final FocusNode _focusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +32,9 @@ class TodoCreator extends StatelessWidget {
     if (_keyForm.currentState?.validate() ?? false) {
       onSubmit(
           _nameTextEditingController.text, _lastNameTextEditingController.text);
-    _nameTextEditingController.clear();
-    _lastNameTextEditingController.clear();
+      _focusNode.requestFocus();
+      _nameTextEditingController.clear();
+      _lastNameTextEditingController.clear();
     }
   }
 
@@ -41,9 +44,10 @@ class TodoCreator extends StatelessWidget {
       child: Column(
         children: [
           _titleTextFromField('Enter name',
-              controller: _nameTextEditingController),
+              type: TextFieldType.name, controller: _nameTextEditingController),
           const SizedBox(height: 16),
           _titleTextFromField('Enter last name',
+              type: TextFieldType.lastName,
               controller: _lastNameTextEditingController),
         ],
       ),
@@ -51,8 +55,11 @@ class TodoCreator extends StatelessWidget {
   }
 
   Widget _titleTextFromField(String hintText,
-          {required TextEditingController controller}) =>
+          {required TextEditingController controller,
+          required TextFieldType type}) =>
       TextFormField(
+        // autofocus: type == textFieldType ? true : false,
+        // focusNode: _focusNode,
         keyboardType: TextInputType.name,
         validator: _textFieldValidator,
         controller: controller,
