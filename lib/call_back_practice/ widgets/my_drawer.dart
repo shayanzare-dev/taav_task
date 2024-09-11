@@ -13,16 +13,17 @@ class MyDrawer extends StatefulWidget {
 }
 
 class _MyDrawerState extends State<MyDrawer> {
-  int _counter = 0;
+  int _counter = 20;
 
-  @override
-  void initState() {
-    _counter = widget.counter;
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   _counter = widget.counter;
+  //   super.initState();
+  // }
 
   @override
   void dispose() {
+    print('disposing....');
     _counter = 0;
     super.dispose();
   }
