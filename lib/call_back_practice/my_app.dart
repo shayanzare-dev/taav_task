@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/call_back_practice/%20widgets/sample_button.dart';
+import 'package:untitled/call_back_practice/widgets/sample_button.dart';
 
-import ' widgets/my_drawer.dart';
+import 'widgets/my_drawer.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});

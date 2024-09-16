@@ -8,12 +8,10 @@ class ItemList extends StatelessWidget {
   final void Function(int) onDelete;
 
   @override
-  Widget build(BuildContext context) {
-    return ListView.separated(
+  Widget build(BuildContext context) => ListView.separated(
         itemBuilder: _itemBuilder,
         separatorBuilder: (context, index) => const Divider(),
         itemCount: todoList.length);
-  }
 
   Widget _itemBuilder(BuildContext context, int index) => Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
