@@ -11,12 +11,18 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<CustomSwitch> switchItems = [];
+  late int number = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() => switchItems.add(const CustomSwitch())),
+        onPressed: () => setState(
+            () => switchItems.add(CustomSwitch(onDelete: (id) {
+              setState(() {
+                switchItems.removeWhere((item)=>item.id==id);
+              });
+            }, id: ++number))),
         child: const Icon(Icons.add),
       ),
       body: _body(),

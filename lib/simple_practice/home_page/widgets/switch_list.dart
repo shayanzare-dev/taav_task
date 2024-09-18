@@ -17,18 +17,7 @@ class _SwitchListState extends State<SwitchList> {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-        itemBuilder: (context, index) {
-          final CustomSwitch customSwitch = CustomSwitch(
-            onDelete: () {
-              setState(() {
-                print(index);
-                widget.items.removeAt(index);
-              });
-            },
-            id: widget.items[index].id,
-          );
-          return customSwitch;
-        },
+        itemBuilder: (context, index) =>widget.items[index],
         separatorBuilder: (_, __) => const Divider(),
         itemCount: widget.items.length);
   }

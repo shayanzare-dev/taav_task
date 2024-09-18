@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomSwitch extends StatefulWidget {
-  const CustomSwitch({super.key,  this.onDelete, this.id});
+  const CustomSwitch({super.key, required this.onDelete, required this.id});
 
-  final int? id;
-  final void Function()? onDelete;
+  final int id;
+  final void Function(int) onDelete;
 
   @override
   State<CustomSwitch> createState() => _CustomSwitchState();
@@ -20,7 +20,7 @@ class _CustomSwitchState extends State<CustomSwitch> {
         Text('switch ${widget.id}'),
         const Spacer(),
         IconButton(
-          onPressed: () => widget.onDelete!(),
+          onPressed: () => widget.onDelete!(widget.id),
           icon: const Icon(Icons.delete),
         ),
         Switch(
