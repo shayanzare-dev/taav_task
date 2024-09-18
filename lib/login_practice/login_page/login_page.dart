@@ -111,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                         Checkbox(
                             value: isChecked,
                             onChanged: (value) {
-                              setState(() => isChecked = value ?? null);
+                              setState(() => isChecked = value);
                             }),
                         const Text('Remember Me'),
                       ],

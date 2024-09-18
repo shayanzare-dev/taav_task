@@ -23,30 +23,32 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Container(),
             DropdownButton<int>(
               value: _menuValues[0],
               items: [
                 DropdownMenuItem(
-                  child: Text('first'),
                   value: _menuValues[0],
+                  child: const Text('first'),
                 ),
                 DropdownMenuItem(
-                  child: Text('second'),
                   value: _menuValues[1],
+                  child: const Text('second'),
                 ),
                 DropdownMenuItem(
-                  child: Text('third'),
                   value: _menuValues[2],
+                  child: const Text('third'),
                 ),
                 DropdownMenuItem(
-                  child: Text('fourth'),
                   value: _menuValues[3],
+                  child: const Text('fourth'),
                 ),
               ],
               onChanged: (value) {
                 print(value);
               },
             ),
+            Slider(value: value, onChanged: onChanged),
             ElevatedButton(onPressed: onPressed, child: const Text('submit')),
             Switch(
               value: isActive,
