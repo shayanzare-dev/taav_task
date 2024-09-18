@@ -14,16 +14,25 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool isActive = false;
   final List<int> _menuValues = [85, 69, 95, 55, 75];
+  double sliderValue = 30;
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+  Widget build(BuildContext context) => MaterialApp(
+        home: _body(context),
+      );
+
+  Widget _body(context) => Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => setState(() {
+            print('on pressed');
+            _showDialog(context);
+          }),
+          child: const Icon(Icons.add),
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(),
             DropdownButton<int>(
               value: _menuValues[0],
               items: [
@@ -48,7 +57,13 @@ class _MyAppState extends State<MyApp> {
                 print(value);
               },
             ),
-            Slider(value: value, onChanged: onChanged),
+            Slider(
+                divisions: 10,
+                min: 0,
+                max: 100,
+                value: sliderValue,
+                onChanged: (value) => setState(() => sliderValue = value)),
+            Text('$sliderValue'),
             ElevatedButton(onPressed: onPressed, child: const Text('submit')),
             Switch(
               value: isActive,
@@ -56,9 +71,27 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
         ),
+      );
+
+  _showDialog(BuildContext context) {
+    return showDialog(
+      barrierColor: Colors.red,
+      context: context,
+      builder: (context) => Dialog(
+        child: SizedBox(
+          height: 100,
+          width: 150,
+          child: Container(
+            decoration: const BoxDecoration(color: Colors.red),
+            child: const Center(
+              child: Text('one'),
+            ),
+          ),
+        ),
       ),
     );
   }
+
 
   void onPressed() {
     setState(() => isActive = !isActive);
