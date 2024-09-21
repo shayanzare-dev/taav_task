@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/beigi_practice/drop_down_page/widgets/my_drawer.dart';
+import 'package:untitled/compoonets/sliding_floating_action_button.dart';
 import 'package:untitled/utils/show_snack_bar.dart';
 
+import '../../compoonets/sliding_floating_action_button.dart';
 import '../models/user_model.dart';
 import 'widgets/drop_down_button.dart';
 import 'widgets/remove_item.dart';
@@ -22,8 +24,16 @@ class _DropDownPageState extends State<DropDownPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: MyDrawer(),
-      floatingActionButton: _floatingActionButton(context),
+      drawer: const MyDrawer(),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          _floatingAddItemToDropDown(context),
+          const SizedBox(width: 16),
+          const SlidingFloatingActionButton(),
+        ],
+      ),
       body: _body(),
     );
   }
@@ -41,9 +51,10 @@ class _DropDownPageState extends State<DropDownPage> {
         ],
       );
 
-  Widget _floatingActionButton(BuildContext context) => FloatingActionButton(
+  Widget _floatingAddItemToDropDown(BuildContext context) =>
+      FloatingActionButton(
         onPressed: () => _showDialogWithTextField(context),
-        child: const Icon(Icons.add),
+        child: const Text('add Item'),
       );
 
   void _showDialogWithTextField(BuildContext context) {
