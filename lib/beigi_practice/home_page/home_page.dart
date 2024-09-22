@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => setState(() => switchItems.add(CustomSwitch(
               onDelete: _onDelete,
+              onEdit: _onEdit,
               id: ++number,
             ))),
         child: const Icon(Icons.add),
@@ -53,5 +54,16 @@ class _HomePageState extends State<HomePage> {
         } else {
           shayanShowSnackBar(context, value: 'sorry! switch in on');
         }
+      });
+
+  void _onEdit(int id) => setState(() {
+        // final int index = switchItems.indexWhere(
+        //       (element) => element.id == id,
+        // );
+        // if (index != -1 && !switchItems[index].isSwitchActive) {
+        //   switchItems.removeAt(index);
+        // } else {
+        //   shayanShowSnackBar(context, value: 'sorry! switch in on');
+        // }
       });
 }
