@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+void main() => runApp(const MyHomePage                   ());
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
 class _MyHomePageState extends State<MyHomePage> {
   bool showChildWidget = true;
   final int _value = 0;

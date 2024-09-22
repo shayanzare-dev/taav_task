@@ -20,8 +20,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() => switchItems.add(
-            CustomSwitch(
+        onPressed: () => setState(() => switchItems.add(CustomSwitch(
               onDelete: _onDelete,
               id: ++number,
             ))),
@@ -38,9 +37,8 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(child: SwitchList(items: switchItems)),
           ElevatedButton(
-              onPressed: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) =>  const DropDownPage(),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const DropDownPage(),
                   )),
               child: const Text('next page')),
         ],
