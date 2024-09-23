@@ -5,12 +5,10 @@ class CustomSwitch extends StatefulWidget {
     super.key,
     required this.onDelete,
     required this.id,
-    required this.onEdit,
   });
 
   final int id;
   final void Function(int) onDelete;
-  final void Function(int) onEdit;
   bool isSwitchActive = false;
 
   @override
@@ -18,15 +16,28 @@ class CustomSwitch extends StatefulWidget {
 }
 
 class _CustomSwitchState extends State<CustomSwitch> {
-  final TextEditingController _textController =
-      TextEditingController();
+  late TextEditingController textController;
   late bool _isSwitchActive;
   bool _isTextFieldActive = false;
+  String value = 'null';
+
+  @override
+  void initState() {
+    value = 'switch ${widget.id}';
+    textController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    print('dispose');
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     _isSwitchActive = widget.isSwitchActive;
-    String value = 'switch ${widget.id}';
     return Row(
       children: [
         Expanded(
@@ -35,9 +46,8 @@ class _CustomSwitchState extends State<CustomSwitch> {
               if (!_isTextFieldActive)
                 Text(value)
               else
-                TextFormField(
-                  controller: _textController,
-                  initialValue: value,
+                TextField(
+                  controller: textController,
                   decoration:
                       const InputDecoration(border: OutlineInputBorder()),
                 ),
@@ -51,11 +61,21 @@ class _CustomSwitchState extends State<CustomSwitch> {
         ),
         IconButton(
           onPressed: () {
-            //widget.onEdit(widget.id);
-            print(_textController.text.isEmpty);
-            setState(() => _isTextFieldActive = !_isTextFieldActive);
+            if (!_isTextFieldActive) {
+              setState(() {
+                textController.text = value;
+                _isTextFieldActive = !_isTextFieldActive;
+              });
+            } else {
+              setState(() {
+                value = textController.text;
+                _isTextFieldActive = !_isTextFieldActive;
+              });
+            }
           },
-          icon: _isTextFieldActive ? Icon(Icons.verified) : Icon(Icons.edit),
+          icon: _isTextFieldActive
+              ? const Icon(Icons.verified)
+              : const Icon(Icons.edit),
         ),
         Switch(
             value: _isSwitchActive,

@@ -13,18 +13,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<CustomSwitch> switchItems = [];
-  late int number = 0;
+  List<CustomSwitch> switchItems = [];
+  int number = 0;
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() => switchItems.add(CustomSwitch(
-              onDelete: _onDelete,
-              onEdit: _onEdit,
-              id: ++number,
-            ))),
+        onPressed: () => setState(() {
+          switchItems.add(CustomSwitch(
+            onDelete: _onDelete,
+            id: ++number,
+          ));
+        }),
         child: const Icon(Icons.add),
       ),
       body: _body(),
@@ -46,6 +49,17 @@ class _HomePageState extends State<HomePage> {
       );
 
   void _onDelete(int id) => setState(() {
+        // switchItems.removeWhere(
+        //   (element) {
+        //     print('id ${id}');
+        //     print('element id ${element.id}');
+        //     print('result = ${switchItems[id].id}');
+        //     print(switchItems.indexOf(element));
+        //     return element.id == id;
+        //   },
+        //   switchItems.removeAt(id);
+
+        // );
         final int index = switchItems.indexWhere(
           (element) => element.id == id,
         );
@@ -54,16 +68,14 @@ class _HomePageState extends State<HomePage> {
         } else {
           shayanShowSnackBar(context, value: 'sorry! switch in on');
         }
-      });
-
-  void _onEdit(int id) => setState(() {
-        // final int index = switchItems.indexWhere(
-        //       (element) => element.id == id,
-        // );
-        // if (index != -1 && !switchItems[index].isSwitchActive) {
-        //   switchItems.removeAt(index);
-        // } else {
-        //   shayanShowSnackBar(context, value: 'sorry! switch in on');
-        // }
-      });
+      }
+          //  CustomSwitch.idCounter -= 1;
+          // if (index != -1 && !switchItems[index].isSwitchActive) {
+          //   print(switchItems[index].id);
+          //   switchItems.removeAt(index);
+          //   --number;
+          // } else {
+          //   shayanShowSnackBar(context, value: 'sorry! switch in on');
+          // }
+          );
 }
