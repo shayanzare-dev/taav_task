@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 const String fontFamily = 'godOfWar';
 
-void main() => runApp(Example1());
+void main() => runApp(const Example1());
 
 class Example1 extends StatefulWidget {
   const Example1({super.key});
@@ -22,7 +22,7 @@ class _Example1State extends State<Example1> {
     'assets/images/5.jpg',
   ];
 
-  int _crossAxisCount = 1;
+  final int _crossAxisCount = 1;
 
   @override
   Widget build(BuildContext context) {

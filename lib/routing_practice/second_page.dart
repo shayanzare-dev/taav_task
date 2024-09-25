@@ -20,19 +20,19 @@ class SecondPage extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () => _trueOnBackTap(context),
-                child: Icon(
+                child: const Icon(
                   Icons.keyboard_backspace,
                   color: Colors.green,
                 )),
             ElevatedButton(
                 onPressed: () => _falseOnBackTap(context),
-                child: Icon(
+                child: const Icon(
                   Icons.keyboard_backspace,
                   color: Colors.red,
                 )),
             ElevatedButton(
                 onPressed: () => _onBackTap(context),
-                child: Icon(Icons.keyboard_backspace)),
+                child: const Icon(Icons.keyboard_backspace)),
           ],
         ),
         Center(
@@ -40,7 +40,7 @@ class SecondPage extends StatelessWidget {
             onPressed: () {
               Navigator.pop<bool?>(context, true);
             },
-            child: Text('back to page'),
+            child: const Text('back to page'),
           ),
         )
       ],

@@ -30,11 +30,11 @@ class _FirstPageState extends State<FirstPage> {
         Text(_counter.toString()),
         ElevatedButton(
           onPressed: () => _goToNextPage(context),
-          child: Text('go to next page'),
+          child: const Text('go to next page'),
         ),
         ElevatedButton(
           onPressed: () => setState(() => ++_counter),
-          child: Text('plus'),
+          child: const Text('plus'),
         ),
       ],
     );

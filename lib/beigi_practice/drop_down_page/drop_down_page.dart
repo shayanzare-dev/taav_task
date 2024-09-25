@@ -3,7 +3,6 @@ import 'package:untitled/beigi_practice/drop_down_page/widgets/my_drawer.dart';
 import 'package:untitled/compoonets/sliding_floating_action_button.dart';
 import 'package:untitled/utils/show_snack_bar.dart';
 
-import '../../compoonets/sliding_floating_action_button.dart';
 import '../models/user_model.dart';
 import 'widgets/drop_down_button.dart';
 import 'widgets/remove_item.dart';
