@@ -22,12 +22,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => setState(() {
-          switchItems.add(CustomSwitch(
+        onPressed: () => setState(() => switchItems.add(CustomSwitch(
             onDelete: _onDelete,
             id: ++number,
-          ));
-        }),
+          ))),
         child: const Icon(Icons.add),
       ),
       body: _body(),
@@ -49,17 +47,6 @@ class _HomePageState extends State<HomePage> {
       );
 
   void _onDelete(int id) => setState(() {
-        // switchItems.removeWhere(
-        //   (element) {
-        //     print('id ${id}');
-        //     print('element id ${element.id}');
-        //     print('result = ${switchItems[id].id}');
-        //     print(switchItems.indexOf(element));
-        //     return element.id == id;
-        //   },
-        //   switchItems.removeAt(id);
-
-        // );
         final int index = switchItems.indexWhere(
           (element) => element.id == id,
         );

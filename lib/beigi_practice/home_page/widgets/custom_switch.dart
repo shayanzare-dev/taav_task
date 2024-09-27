@@ -29,9 +29,16 @@ class _CustomSwitchState extends State<CustomSwitch> {
   }
 
   @override
+  void didUpdateWidget(covariant CustomSwitch oldWidget) {
+    value = 'switch ${widget.id}';
+    print('did update widget');
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   void dispose() {
     textController.dispose();
-    print('dispose');
+    print('widget = ${widget.id}');
     super.dispose();
   }
 
