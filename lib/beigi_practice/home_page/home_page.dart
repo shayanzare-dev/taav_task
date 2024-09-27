@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
         );
         if (index != -1 && !switchItems[index].isSwitchActive) {
           switchItems.removeAt(index);
+          number = switchItems.last.id;
         } else {
           shayanShowSnackBar(context, value: 'sorry! switch in on');
         }
