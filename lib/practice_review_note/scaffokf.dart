@@ -21,13 +21,27 @@ class _ScaffokfState extends State<Scaffokf> {
           },
           child: const Icon(Icons.add),
         ),
-        body: Column(
-
+        body: Stack(
           children: [
-            FloatingActionButton(
-              onPressed: () =>
-                  setState(() => shayanShowSnackBar(context, value: 'hellooo')),
-              child: const Icon(Icons.edit),
+            Positioned.fill(
+              child: Container(
+                color: Colors.red,
+              ),
+            ),
+            Positioned.fill(
+              child: Container(
+                color: Colors.green,
+              ),
+            ),
+            Positioned.fill(
+              child: Container(
+                color: Colors.yellow,
+              ),
+            ),
+            Positioned.fill(
+              child: Container(
+                color: Colors.blue,
+              ),
             ),
           ],
         ));

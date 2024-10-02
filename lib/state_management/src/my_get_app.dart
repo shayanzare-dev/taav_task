@@ -13,7 +13,7 @@ class MyGetXApp extends StatelessWidget {
     return GetMaterialApp(
       initialRoute: RouteNames.todoPage,
       getPages: RoutePage.pages,
-      home: TodoPage(),
+      home: const TodoPage(),
     );
   }
 }

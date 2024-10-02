@@ -5,13 +5,6 @@ import '../controller/todo_page_controller.dart';
 
 class TodoPage extends GetView<ToDoPageController> {
   const TodoPage({super.key}) ;
-
-  /*
-  * {
-    Get.put(ToDoPageController());
-    _controller = Get.find<ToDoPageController>();
-  }
-*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(

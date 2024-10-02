@@ -11,14 +11,10 @@ class SwitchList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Column(
-      children: _generatorItems(),
-    ));
-    /*return ListView.separated(
+    return ListView.separated(
         itemBuilder: (context, index) => items[index],
         separatorBuilder: (_, __) => const Divider(),
-        itemCount: items.length);*/
+        itemCount: items.length);
   }
 
   List<Widget> _generatorItems() {

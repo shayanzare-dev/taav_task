@@ -10,6 +10,6 @@ class MyPracticeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Scaffokf());
+    return const MaterialApp(home: Scaffokf());
   }
 }

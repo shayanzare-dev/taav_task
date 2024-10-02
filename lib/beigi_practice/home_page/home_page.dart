@@ -16,8 +16,6 @@ class _HomePageState extends State<HomePage> {
   List<CustomSwitch> switchItems = [];
   int number = 0;
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

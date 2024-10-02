@@ -21,23 +21,25 @@ class _CustomSwitchState extends State<CustomSwitch> {
   bool _isTextFieldActive = false;
   String value = 'null';
 
-  @override
-  void initState() {
-    value = 'switch ${widget.id}';
-    textController = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    textController.dispose();
-    print('dispose');
-    super.dispose();
-  }
+  // @override
+  // void initState() {
+  //
+  //   textController = TextEditingController();
+  //   super.initState();
+  // }
+  //
+  // @override
+  // void dispose() {
+  //   textController.dispose();
+  //   value = 'switch ${widget.id}';
+  //   print('dispose');
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
     _isSwitchActive = widget.isSwitchActive;
+    value = 'switch ${widget.id}';
     return Row(
       children: [
         Expanded(
@@ -59,7 +61,7 @@ class _CustomSwitchState extends State<CustomSwitch> {
           onPressed: () => widget.onDelete(widget.id),
           icon: const Icon(Icons.delete),
         ),
-        IconButton(
+        /*IconButton(
           onPressed: () {
             if (!_isTextFieldActive) {
               setState(() {
@@ -76,7 +78,7 @@ class _CustomSwitchState extends State<CustomSwitch> {
           icon: _isTextFieldActive
               ? const Icon(Icons.verified)
               : const Icon(Icons.edit),
-        ),
+        ),*/
         Switch(
             value: _isSwitchActive,
             onChanged: (value) => _changeSwitchStatus(value)),
