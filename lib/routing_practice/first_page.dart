@@ -17,7 +17,6 @@ class _FirstPageState extends State<FirstPage> {
     super.activate();
   }
 
-// todo(SHAYAN ZARE): im going to do it;
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: SafeArea(child: _body(context)));
